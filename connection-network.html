@@ -152,6 +152,117 @@
         .tooltip.visible {
             opacity: 1;
         }
+        
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                overflow: auto;
+                background: #0a0a0a;
+            }
+            
+            #network {
+                height: auto;
+                min-height: 100vh;
+                padding-bottom: 2rem;
+            }
+            
+            .info-panel {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 1rem;
+                max-width: none;
+                width: calc(100% - 2rem);
+            }
+            
+            .info-panel h1 {
+                font-size: 1.4rem;
+            }
+            
+            .info-panel p {
+                font-size: 0.85rem;
+            }
+            
+            .legend-item {
+                font-size: 0.8rem;
+            }
+            
+            .stats {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin: 1rem;
+                width: calc(100% - 2rem);
+            }
+            
+            .controls {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .control-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+                min-width: 120px;
+                text-align: center;
+            }
+            
+            canvas {
+                width: 100% !important;
+                height: 400px !important;
+                margin: 1rem 0;
+                border-radius: 10px;
+            }
+            
+            .tooltip {
+                max-width: 250px;
+                font-size: 0.8rem;
+                padding: 0.8rem;
+            }
+            
+            /* Hide elements that don't work well on mobile */
+            .info-panel .legend {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .info-panel {
+                padding: 1.5rem;
+                margin: 0.5rem;
+                width: calc(100% - 1rem);
+            }
+            
+            .info-panel h1 {
+                font-size: 1.2rem;
+            }
+            
+            .stats {
+                padding: 1rem;
+                margin: 0.5rem;
+                width: calc(100% - 1rem);
+            }
+            
+            .controls {
+                margin: 0.5rem;
+                gap: 0.5rem;
+            }
+            
+            .control-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+                min-width: 100px;
+            }
+            
+            canvas {
+                height: 300px !important;
+                margin: 0.5rem 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -236,11 +347,61 @@
             const ctx = canvas.getContext('2d');
             const tooltip = document.querySelector('.tooltip');
             
-            // Set canvas size
+            // Set canvas size - mobile responsive
             function setCanvasSize() {
-                canvas.width = window.innerWidth || 800;
-                canvas.height = window.innerHeight || 600;
+                const isMobile = window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    // Mobile: use container width and fixed height
+                    const container = document.getElementById('network');
+                    canvas.width = container.offsetWidth || window.innerWidth;
+                    canvas.height = window.innerWidth <= 480 ? 300 : 400;
+                } else {
+                    // Desktop: use full viewport
+                    canvas.width = window.innerWidth || 800;
+                    canvas.height = window.innerHeight || 600;
+                }
+                
+                // Reinitialize node positions when canvas size changes
+                initializeNodePositions();
             }
+            
+            // Initialize node positions
+            function initializeNodePositions() {
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const isMobile = window.innerWidth <= 768;
+                const scaleFactor = isMobile ? 0.6 : 1; // Scale down on mobile
+                
+                let personIndex = 0, themeIndex = 0, actionIndex = 0, impactIndex = 0;
+                
+                networkData.nodes.forEach((node) => {
+                    let angle, radius;
+                    
+                    switch(node.type) {
+                        case 'theme':
+                            angle = (themeIndex++ / 5) * Math.PI * 2;
+                            radius = 60 * scaleFactor;
+                            break;
+                        case 'person':
+                            angle = (personIndex++ / 8) * Math.PI * 2;
+                            radius = 120 * scaleFactor;
+                            break;
+                        case 'action':
+                            angle = (actionIndex++ / 4) * Math.PI * 2 + 0.3;
+                            radius = 90 * scaleFactor;
+                            break;
+                        case 'impact':
+                            angle = (impactIndex++ / 4) * Math.PI * 2 + 0.6;
+                            radius = 150 * scaleFactor;
+                            break;
+                    }
+                    
+                    node.x = centerX + Math.cos(angle) * radius + (Math.random() - 0.5) * 20 * scaleFactor;
+                    node.y = centerY + Math.sin(angle) * radius + (Math.random() - 0.5) * 20 * scaleFactor;
+                });
+            }
+            
             setCanvasSize();
             
             // Handle window resize
@@ -316,37 +477,6 @@
                     impact: '#a8dadc'
                 }
             };
-            
-            // Initialize node positions
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            let personIndex = 0, themeIndex = 0, actionIndex = 0, impactIndex = 0;
-            
-            networkData.nodes.forEach((node) => {
-                let angle, radius;
-                
-                switch(node.type) {
-                    case 'theme':
-                        angle = (themeIndex++ / 5) * Math.PI * 2;
-                        radius = 100;
-                        break;
-                    case 'person':
-                        angle = (personIndex++ / 8) * Math.PI * 2;
-                        radius = 250;
-                        break;
-                    case 'action':
-                        angle = (actionIndex++ / 4) * Math.PI * 2 + 0.3;
-                        radius = 180;
-                        break;
-                    case 'impact':
-                        angle = (impactIndex++ / 4) * Math.PI * 2 + 0.6;
-                        radius = 320;
-                        break;
-                }
-                
-                node.x = centerX + Math.cos(angle) * radius + (Math.random() - 0.5) * 30;
-                node.y = centerY + Math.sin(angle) * radius + (Math.random() - 0.5) * 30;
-            });
             
             // Simulation state
             let mouseX = null;
@@ -539,29 +669,45 @@
                 networkData.nodes.forEach(node => {
                     if (!isNodeVisible(node)) return;
                     
+                    const isMobile = window.innerWidth <= 768;
+                    const nodeSize = isMobile ? 
+                        (node.type === 'theme' ? 25 : 18) : 
+                        (node.type === 'theme' ? 35 : 25);
+                    
                     // Node circle
                     ctx.beginPath();
-                    ctx.arc(node.x, node.y, node.type === 'theme' ? 35 : 25, 0, Math.PI * 2);
+                    ctx.arc(node.x, node.y, nodeSize, 0, Math.PI * 2);
                     ctx.fillStyle = networkData.colors[node.type];
                     ctx.fill();
                     
                     // Glow
-                    const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, 40);
+                    const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, nodeSize + 15);
                     gradient.addColorStop(0, networkData.colors[node.type] + '40');
                     gradient.addColorStop(1, 'transparent');
                     ctx.fillStyle = gradient;
                     ctx.fill();
                     
-                    // Label
+                    // Label - mobile responsive
                     ctx.fillStyle = '#fff';
-                    ctx.font = node.type === 'theme' ? 'bold 12px Arial' : '11px Arial';
+                    const fontSize = isMobile ? 
+                        (node.type === 'theme' ? 10 : 9) : 
+                        (node.type === 'theme' ? 12 : 11);
+                    ctx.font = node.type === 'theme' ? 
+                        `bold ${fontSize}px Arial` : 
+                        `${fontSize}px Arial`;
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
                     
+                    // Split long labels for better mobile display
                     const words = node.label.split(' ');
-                    if (words.length > 2) {
-                        ctx.fillText(words.slice(0, 2).join(' '), node.x, node.y - 5);
-                        ctx.fillText(words.slice(2).join(' '), node.x, node.y + 5);
+                    const maxWords = isMobile ? 2 : 3;
+                    
+                    if (words.length > maxWords) {
+                        const lineHeight = fontSize + 2;
+                        ctx.fillText(words.slice(0, maxWords).join(' '), node.x, node.y - lineHeight/2);
+                        if (!isMobile || words.length <= 4) {
+                            ctx.fillText(words.slice(maxWords).join(' '), node.x, node.y + lineHeight/2);
+                        }
                     } else {
                         ctx.fillText(node.label, node.x, node.y);
                     }
@@ -572,6 +718,45 @@
             
             // Start animation
             animate();
+            
+            // Add touch events for mobile
+            canvas.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                mouseX = touch.clientX - rect.left;
+                mouseY = touch.clientY - rect.top;
+                
+                networkData.nodes.forEach(node => {
+                    if (!isNodeVisible(node)) return;
+                    const dx = mouseX - node.x;
+                    const dy = mouseY - node.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 40) { // Larger touch target
+                        draggedNode = node;
+                    }
+                });
+            });
+            
+            canvas.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                if (draggedNode) {
+                    const touch = e.touches[0];
+                    const rect = canvas.getBoundingClientRect();
+                    mouseX = touch.clientX - rect.left;
+                    mouseY = touch.clientY - rect.top;
+                    
+                    draggedNode.x = mouseX;
+                    draggedNode.y = mouseY;
+                    draggedNode.vx = 0;
+                    draggedNode.vy = 0;
+                }
+            });
+            
+            canvas.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                draggedNode = null;
+            });
         });
     </script>
     
