@@ -1,18 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM loaded, initializing mobile menu...");
+    
     // Mobile menu toggle functionality
     const mobileToggle = document.querySelector(".mobile-menu-toggle");
     const navLinks = document.querySelector(".nav-links");
     
+    console.log("Mobile toggle element:", mobileToggle);
+    console.log("Nav links element:", navLinks);
+    
     if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener("click", function() {
+        console.log("Mobile menu elements found, adding event listeners...");
+        
+        mobileToggle.addEventListener("click", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log("Mobile toggle clicked!");
+            console.log("Nav links classes before:", navLinks.className);
+            console.log("Mobile toggle classes before:", mobileToggle.className);
+            
             navLinks.classList.toggle("active");
             mobileToggle.classList.toggle("active");
+            
+            console.log("Nav links classes after:", navLinks.className);
+            console.log("Mobile toggle classes after:", mobileToggle.className);
         });
         
         // Close mobile menu when clicking on a link
         const navLinkItems = document.querySelectorAll(".nav-links a");
         navLinkItems.forEach(link => {
             link.addEventListener("click", function() {
+                console.log("Nav link clicked, closing menu");
                 navLinks.classList.remove("active");
                 mobileToggle.classList.remove("active");
             });
@@ -25,6 +43,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 mobileToggle.classList.remove("active");
             }
         });
+    } else {
+        console.error("Mobile menu elements not found!");
+        console.error("mobileToggle:", mobileToggle);
+        console.error("navLinks:", navLinks);
     }
     
     // Card hover animations
