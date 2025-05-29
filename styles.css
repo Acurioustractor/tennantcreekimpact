@@ -139,6 +139,16 @@ body {
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     background: #000;
+    position: relative;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 .overview-section {
@@ -530,6 +540,12 @@ body {
     
     .video-container {
         height: 50vh;
+        min-height: 280px;
+        margin-top: 1rem;
+    }
+    
+    .video-container iframe {
+        touch-action: manipulation;
     }
     
     .overview-grid {
