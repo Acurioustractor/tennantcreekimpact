@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Report - Tennant Creek Community Voices</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .report-body {
+            background: #ffffff;
+            padding-top: 70px;
+        }
+        
+        .report-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .report-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .report-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .report-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            line-height: 1.7;
+        }
+        
+        .report-section {
+            margin-bottom: 4rem;
+        }
+        
+        .report-section h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        .report-section h3 {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin: 2.5rem 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        .report-section h4 {
+            font-size: 1.3rem;
+            color: #3498db;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+        
+        .executive-summary {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 3rem;
+        }
+        
+        .key-findings {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .key-findings ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .key-findings li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #f1f3f4;
+        }
+        
+        .key-findings li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .storytellers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .storyteller-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .storyteller-name {
+            font-weight: 600;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        
+        .storyteller-role {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .themes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .themes-table th {
+            background: #3498db;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .themes-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .themes-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .impact-flow {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+        
+        .flow-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .flow-level {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .flow-level h4 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .flow-level ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .flow-level li {
+            padding: 0.3rem 0;
+            color: #6c757d;
+        }
+        
+        .quote-highlight {
+            background: #e8f4f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #2c3e50;
+        }
+        
+        .quote-author {
+            font-weight: 600;
+            color: #3498db;
+            margin-top: 0.5rem;
+            font-style: normal;
+        }
+        
+        .action-framework {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+        
+        .stakeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stakeholder-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            border-top: 4px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .stakeholder-card h4 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .action-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .action-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #2c3e50;
+        }
+        
+        .action-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .timeline-item.past {
+            border-top: 4px solid #e74c3c;
+        }
+        
+        .timeline-item.present {
+            border-top: 4px solid #f39c12;
+        }
+        
+        .timeline-item.future {
+            border-top: 4px solid #27ae60;
+        }
+        
+        .timeline-item h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item.past h4 { color: #e74c3c; }
+        .timeline-item.present h4 { color: #f39c12; }
+        .timeline-item.future h4 { color: #27ae60; }
+        
+        .stats-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid #3498db;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .next-steps {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+        
+        .next-steps h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .conclusion h2 {
+            color: white;
+            border: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .report-meta {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-style: italic;
+            border-top: 1px solid #e9ecef;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body class="report-body">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>Tennant Creek Community Voices</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="community-voices.html">Community Voices</a></li>
+                <li><a href="connection-network.html">Connection Network</a></li>
+                <li><a href="impact-report.html" class="active">Impact Report</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="report-header">
+        <div class="container">
+            <h1>Tennant Creek Community Voices: Impact & Action Report</h1>
+            <p class="report-subtitle">Analysis of 8 community conversations revealing pathways for transformative change</p>
+        </div>
+    </header>
+
+    <main class="report-content">
+        <!-- Executive Summary -->
+        <section class="report-section">
+            <div class="executive-summary">
+                <h2>Executive Summary</h2>
+                <p><strong>Overall Sentiment: POSITIVE WITH HOPE (59%)</strong></p>
+                <p>This analysis of community voices from Tennant Creek reveals a powerful convergence of cultural strength, practical innovation, and ethical partnership that creates a model for systemic change. The simple act of asking "What kind of house would you like?" represents a revolutionary shift in power dynamics.</p>
+                
+                <div class="key-findings">
+                    <h3>Key Findings:</h3>
+                    <ul>
+                        <li><strong>Housing emerges as the foundational issue</strong> (99 mentions) - "Healthy homes is the start of everything"</li>
+                        <li><strong>Strong cultural identity drives resilience</strong> (61 mentions) with deep connections to country, totem, and language</li>
+                        <li><strong>Community-led design is revolutionary</strong> - "We've never been asked what sort of house we'd like"</li>
+                        <li><strong>Youth focus is critical</strong> - Need for cultural centers and safe spaces</li>
+                        <li><strong>Partnership approach is valued</strong> - "You're here to help us, not use us up"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Voices Overview -->
+        <section class="report-section">
+            <h2>Community Voices Overview</h2>
+            <h3>Storytellers:</h3>
+            <div class="storytellers-grid">
+                <div class="storyteller-card">
+                    <div class="storyteller-name">1. Georgina Byron AM</div>
+                    <div class="storyteller-role">CEO Snow Foundation</div>
+                </div>
+                <div class="storyteller-card">
+                    <div class="storyteller-name">2. Dianne Stokes</div>
+                    <div class="storyteller-role">Traditional owner, 24 years on country</div>
+                </div>
+                <div class="storyteller-card">
+                    <div class="storyteller-name">3. Risilda Hogan</div>
+                    <div class="storyteller-role">Mother of five, transitioned from tin shed to housing</div>
+                </div>
+                <div class="storyteller-card">
+                    <div class="storyteller-name">4. Cliff Plummer</div>
+                    <div class="storyteller-role">Aboriginal health practitioner, 38 years experience</div>
+                </div>
+                <div class="storyteller-card">
+                    <div class="storyteller-name">5. Linda Turner (LT)</div>
+                    <div class="storyteller-role">Cultural tourism entrepreneur</div>
+                </div>
+                <div class="storyteller-card">
+                    <div class="storyteller-name">6. Norman Frank</div>
+                    <div class="storyteller-role">Elder, Wilya Janta housing initiative founder</div>
+                </div>
+                <div class="storyteller-card">
+                    <div class="storyteller-name">7. Patricia Frank</div>
+                    <div class="storyteller-role">Aboriginal health worker</div>
+                </div>
+                <div class="storyteller-card">
+                    <div class="storyteller-name">8. Annie Morrison</div>
+                    <div class="storyteller-role">Elder from homeland community</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thematic Analysis -->
+        <section class="report-section">
+            <h2>Thematic Analysis</h2>
+            <h3>Top Themes by Frequency:</h3>
+            <table class="themes-table">
+                <thead>
+                    <tr>
+                        <th>Theme</th>
+                        <th>Mentions</th>
+                        <th>Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Housing</strong></td>
+                        <td>99</td>
+                        <td>Foundation for all wellbeing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Community</strong></td>
+                        <td>63</td>
+                        <td>Collective strength and support</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Culture</strong></td>
+                        <td>61</td>
+                        <td>Identity, tradition, language</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Youth</strong></td>
+                        <td>43</td>
+                        <td>Future focus and hope</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dignity</strong></td>
+                        <td>37</td>
+                        <td>Human worth and agency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partnership</strong></td>
+                        <td>23</td>
+                        <td>Collaborative approaches</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Impact Flow -->
+        <section class="report-section">
+            <h2>Impact Flow: Individual → Systemic</h2>
+            <div class="impact-flow">
+                <div class="flow-levels">
+                    <div class="flow-level">
+                        <h4>1. Individual Level</h4>
+                        <ul>
+                            <li>Better sleep and health</li>
+                            <li>Restored dignity</li>
+                            <li>Personal empowerment</li>
+                        </ul>
+                    </div>
+                    <div class="flow-level">
+                        <h4>2. Family Level</h4>
+                        <ul>
+                            <li>Safe spaces for children</li>
+                            <li>Cultural transmission</li>
+                            <li>Reduced stress</li>
+                        </ul>
+                    </div>
+                    <div class="flow-level">
+                        <h4>3. Community Level</h4>
+                        <ul>
+                            <li>Shared learning</li>
+                            <li>Collective strength</li>
+                            <li>Cultural revival</li>
+                        </ul>
+                    </div>
+                    <div class="flow-level">
+                        <h4>4. Systemic Level</h4>
+                        <ul>
+                            <li>New housing models</li>
+                            <li>Partnership approaches</li>
+                            <li>Policy influence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Insights -->
+        <section class="report-section">
+            <h2>Key Insights</h2>
+            
+            <h3>1. Housing as Foundation</h3>
+            <div class="quote-highlight">
+                "You need to have a home that you can call home and that you're happy with, and the wind can flow in and out and you can have your family there"
+                <div class="quote-author">- Georgina Byron AM</div>
+            </div>
+
+            <h3>2. Cultural Design Revolution</h3>
+            <div class="quote-highlight">
+                "We've never been asked what sort of house we'd like to live in. So this is a really exciting time."
+                <div class="quote-author">- Linda Turner</div>
+            </div>
+
+            <h3>3. Intergenerational Vision</h3>
+            <div class="quote-highlight">
+                "I'm just opening the gateway for them. Something that they can have something to work on."
+                <div class="quote-author">- Norman Frank</div>
+            </div>
+
+            <h3>4. Community Agency</h3>
+            <div class="quote-highlight">
+                "When I come back here, I know I got no one to tell me what to do. It's my home."
+                <div class="quote-author">- Dianne Stokes</div>
+            </div>
+
+            <h3>5. Partnership Ethics</h3>
+            <div class="quote-highlight">
+                "You're here to help us, not here to use us up, but you're here to help us and support us as we go along."
+                <div class="quote-author">- Patricia Frank</div>
+            </div>
+        </section>
+
+        <!-- Action Framework -->
+        <section class="report-section">
+            <h2>Action Framework</h2>
+            <div class="action-framework">
+                <div class="stakeholder-grid">
+                    <div class="stakeholder-card">
+                        <h4>For Philanthropists</h4>
+                        <ul class="action-list">
+                            <li><strong>Fund culturally appropriate housing</strong> - "One home, there'll be another home"</li>
+                            <li><strong>Support community-led initiatives</strong>, not top-down programs</li>
+                            <li><strong>Make long-term commitments</strong> - "12, 13 years...committed another five"</li>
+                            <li><strong>Back local entrepreneurs and innovators</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="stakeholder-card">
+                        <h4>For Organizations</h4>
+                        <ul class="action-list">
+                            <li><strong>Listen first</strong> - "Sit down and talk to them or a group of people"</li>
+                            <li><strong>Design WITH not FOR</strong> - "Collaborate how we wanna live"</li>
+                            <li><strong>Focus on practical solutions</strong> - Simple beds, washing machines without power</li>
+                            <li><strong>Respect cultural protocols</strong> - "You don't walk into a community until you talk to the traditional owners"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="stakeholder-card">
+                        <h4>For Government</h4>
+                        <ul class="action-list">
+                            <li><strong>Recognize housing as a human right</strong> - "450 houses needed...10 year waiting list"</li>
+                            <li><strong>Ensure funding reaches ground level</strong> - "Most of the money gets [lost] in the bureaucracy"</li>
+                            <li><strong>Support culturally appropriate design</strong> - "This could be a way of saving money"</li>
+                            <li><strong>Enable community ownership</strong> - "You don't really own that house"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Narrative Journey -->
+        <section class="report-section">
+            <h2>Narrative Journey: Past → Present → Future</h2>
+            <div class="timeline">
+                <div class="timeline-item past">
+                    <h4>Past</h4>
+                    <p>Harsh living conditions, systemic exclusion, cultural disruption, "Flour and sugar days"</p>
+                </div>
+                <div class="timeline-item present">
+                    <h4>Present</h4>
+                    <p>Community-led innovation, partnership building, hope emerging, simple solutions making difference</p>
+                </div>
+                <div class="timeline-item future">
+                    <h4>Future</h4>
+                    <p>Culturally appropriate solutions, youth empowerment, systemic change, generational wealth</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Critical Success Factors -->
+        <section class="report-section">
+            <h2>Critical Success Factors</h2>
+            
+            <h3>1. Community-Led Design</h3>
+            <ul>
+                <li>Traditional owners at the center</li>
+                <li>Cultural protocols respected</li>
+                <li>Local knowledge valued</li>
+            </ul>
+
+            <h3>2. Long-term Commitment</h3>
+            <ul>
+                <li>Multi-year engagement</li>
+                <li>Relationship building</li>
+                <li>Trust development</li>
+            </ul>
+
+            <h3>3. Practical Innovation</h3>
+            <ul>
+                <li>Simple, effective solutions</li>
+                <li>Culturally appropriate adaptations</li>
+                <li>User-centered design</li>
+            </ul>
+
+            <h3>4. Youth Investment</h3>
+            <ul>
+                <li>Cultural centers</li>
+                <li>Safe learning spaces</li>
+                <li>Identity strengthening</li>
+            </ul>
+        </section>
+
+        <!-- Barriers to Address -->
+        <section class="report-section">
+            <h2>Barriers to Address</h2>
+            
+            <h3>Systemic</h3>
+            <ul>
+                <li>Bureaucratic fund absorption</li>
+                <li>10-year housing waitlists</li>
+                <li>Lack of community ownership</li>
+            </ul>
+
+            <h3>Social</h3>
+            <ul>
+                <li>Alcohol and drug impacts</li>
+                <li>Youth disengagement</li>
+                <li>Loss of language/culture</li>
+            </ul>
+
+            <h3>Practical</h3>
+            <ul>
+                <li>Power costs</li>
+                <li>Inadequate shelter</li>
+                <li>Limited washing facilities</li>
+            </ul>
+        </section>
+
+        <!-- Measurement Indicators -->
+        <section class="report-section">
+            <h2>Measurement Indicators</h2>
+            
+            <h3>Quantitative</h3>
+            <div class="stats-highlight">
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <div class="stat-label">Community voices analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">22</span>
+                    <div class="stat-label">Priority actions identified</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">7</span>
+                    <div class="stat-label">Impact statements documented</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">59%</span>
+                    <div class="stat-label">Positive sentiment</div>
+                </div>
+            </div>
+
+            <h3>Qualitative</h3>
+            <ul>
+                <li>Movement from extraction to partnership</li>
+                <li>Shift from deficit to strength-based approaches</li>
+                <li>Evolution from one-size-fits-all to culturally appropriate</li>
+                <li>Transition from short-term fixes to generational thinking</li>
+            </ul>
+        </section>
+
+        <!-- Transformative Potential -->
+        <section class="report-section">
+            <h2>Transformative Potential</h2>
+            <p>This community demonstrates extraordinary resilience and vision. The convergence of:</p>
+            <ul>
+                <li><strong>Cultural strength</strong></li>
+                <li><strong>Practical innovation</strong></li>
+                <li><strong>Ethical partnership</strong></li>
+            </ul>
+            <p>Creates a powerful model for systemic change that could transform Indigenous housing and wellbeing across Australia.</p>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="report-section">
+            <h2>Next Steps</h2>
+            <div class="next-steps">
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <h3>Immediate (0-3 months)</h3>
+                        <ul>
+                            <li>Fund and implement simple bed solutions</li>
+                            <li>Begin washing machine distribution</li>
+                            <li>Support current housing projects</li>
+                            <li>Document and share learnings</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h3>Short-term (3-12 months)</h3>
+                        <ul>
+                            <li>Establish youth center planning</li>
+                            <li>Expand culturally appropriate housing</li>
+                            <li>Develop cultural tourism initiatives</li>
+                            <li>Build organizational partnerships</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h3>Long-term (1-5 years)</h3>
+                        <ul>
+                            <li>Scale housing model nationally</li>
+                            <li>Establish permanent youth centers</li>
+                            <li>Create sustainable employment</li>
+                            <li>Influence policy change</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="conclusion">
+            <h2>Conclusion</h2>
+            <p>The voices from Tennant Creek reveal a community at a transformative moment. With the right support - listening rather than imposing, partnering rather than directing, and investing for the long term - this community can model a new approach to Indigenous wellbeing that honors culture, builds dignity, and creates lasting change.</p>
+            <p><strong>The revolutionary act is simple: Ask what people need, listen to their answers, and support their solutions.</strong></p>
+        </section>
+
+        <div class="report-meta">
+            <p><em>Report compiled from community conversations, May 2024</em></p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>Brought to you by <strong>Empathy Ledger</strong> an <strong>A Curious Tractor</strong> project.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
